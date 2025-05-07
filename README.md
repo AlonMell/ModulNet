@@ -21,8 +21,8 @@ Includes core building blocks for fully-connected and convolutional networks, cu
 ## Installation
 
 ```bash
-git clone <repo-url> models-scratch
-cd models-scratch
+git clone https://github.com/AlonMell/ModulNet.git module_net
+cd module_net
 pip install -r requirements.txt
 ```
 
@@ -34,7 +34,7 @@ Train the example convolutional network on MNIST:
 python main.py
 ```
 
-Or explore the MLP implementation in `notebooks/mlp.ipynb`.
+Or explore the ModuleNet implementation in `notebooks/module.ipynb`.
 
 ## Development
 
