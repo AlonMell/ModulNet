@@ -80,28 +80,32 @@ class Linear(Module):
         weight: NDArray = np.random.randn(out_features, in_features) * np.sqrt(
             2 / in_features
         )
-        bias: NDArray = np.zeros((out_features, 1))
+        bias: NDArray = np.zeros(out_features)
 
         self._params = [weight, bias]
         self._grads = [np.zeros_like(weight), np.zeros_like(bias)]
 
-        self._input: NDArray = np.zeros((in_features, 1))
+        self._input: NDArray = np.zeros(in_features)
 
     def forward(self, x: NDArray) -> NDArray:
+        # x.shape: (batch_size, in_features)
         self._input = x
         W, b = self._params
-        return W @ x + b
+        # (batch, in) · (in, out) = (batch, out)
+        return x @ W.T + b
 
     # grad it's dLoss/dy
     def backward(self, grad: NDArray) -> NDArray:
+        # grad: (batch_size, out_features)
         W, b = self._params
         dW, db = self._grads
         x = self._input
 
-        dW[...] = grad @ x.T
-        db[...] = np.sum(grad, axis=1, keepdims=True)
+        # dW: (out, in) = grad^T (out×batch) @ x (batch×in)
+        dW[...] = grad.T @ x
+        db[...] = np.sum(grad, axis=0, keepdims=True)
 
-        return W.T @ grad
+        return grad @ W
 
 
 # Activation: ReLU
