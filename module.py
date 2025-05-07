@@ -103,7 +103,7 @@ class Linear(Module):
 
         # dW: (out, in) = grad^T (out×batch) @ x (batch×in)
         dW[...] = grad.T @ x
-        db[...] = np.sum(grad, axis=0, keepdims=True)
+        db[...] = np.sum(grad, axis=0)
 
         return grad @ W
 
@@ -133,4 +133,4 @@ class Sigmoid(Module):
         return self._cache
 
     def backward(self, grad: NDArray) -> NDArray:
-        return self._cache * (1 - self._cache)
+        return grad * (self._cache * (1 - self._cache))

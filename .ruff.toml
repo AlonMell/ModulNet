@@ -1,0 +1,7 @@
+select = ["C90", "N", "UP", "ANN", "S", "B", "A", "SIM", "I"]
+
+line-length = 88
+
+target-version = "py313"
+
+exclude = [".git", "__pycache__", "data", "*.ipynb"]
