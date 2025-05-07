@@ -5,10 +5,10 @@ from numpy.typing import NDArray
 from torchvision import transforms
 from tqdm import tqdm, trange
 
-from convolutional import Conv2D, Flatten, MaxPool2D
-from losses import CrossEntropy
-from module import Linear, Module, ReLU, Sequential
-from optimizer import Adam
+from module_net.convolutional import Conv2D, Flatten, MaxPool2D
+from module_net.losses import CrossEntropy
+from module_net.module import Linear, Module, ReLU, Sequential
+from module_net.optimizer import Adam
 
 
 class ConvNet(Module):
@@ -130,7 +130,7 @@ def test(model, testloader):
         total_samples += y_idx.shape[0]
         total_correct += np.sum(preds == y_idx)
 
-        for pred, label in zip(preds, y_idx):
+        for pred, label in zip(preds, y_idx, strict=False):
             total_per_class[label] += 1
             correct_per_class[label] += pred == label
 

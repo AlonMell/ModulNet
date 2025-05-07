@@ -1,7 +1,10 @@
-# models-scratch
+# ModulNet
 
 A lightweight neural network framework written from scratch in NumPy.
 Includes core building blocks for fully-connected and convolutional networks, custom optimizers, loss functions, and data loading utilities.
+
+## Explanation
+![Architecture](MLP.svg)
 
 ## Features
 
@@ -13,7 +16,7 @@ Includes core building blocks for fully-connected and convolutional networks, cu
 - Simple `DataLoader` for batching
 - Example ConvNet training on MNIST in `main.py`
 - Jupyter notebooks for experimentation
-- Ruff, Black, isort, pytest integration for linting, formatting, and testing
+- Ruff, pytest integration for linting, formatting, and testing
 
 ## Installation
 

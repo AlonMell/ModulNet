@@ -23,10 +23,6 @@ pip-delete-this-directory.txt
 .cache/
 .pytest_cache/
 
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb
-
 # Virtual environments
 env/
 venv/

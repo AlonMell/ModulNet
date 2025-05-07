@@ -4,8 +4,6 @@ lint:
 	ruff .
 
 fmt:
-	isort .
-	black .
 	ruff --fix .
 
 test:
